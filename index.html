@@ -1,37 +1,67 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+    <title>Holden Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+</head>
+
+<body>
 <!-- Tab links -->
 <div class="tab">
     <button class="tablinks" onclick="openTab(event, 'About Me')">[About Me]</button>
     <button class="tablinks" onclick="openTab(event, 'Resume')">[Resume]</button>
     <button class="tablinks" onclick="openTab(event, 'Project 1')">[StarCraft Counter App]</button>
-    <!--<button class="tablinks" onclick="openTab(event, 'Project 2')">[Project 2]</button>-->
+    <button class="tablinks" onclick="openTab(event, 'blog')">[Blog]</button>
   </div>
   
   <link rel="stylesheet" href="index.css">
   
   <!-- Tab content -->
   <div id="About Me" class="tabcontent" id="aboutme">
+
     <div class="grid-container grid">
-      <h2>About Me</h2>
-      <p id="header">Hello! My name is Holden Clark and I am currently a senior studying computer science with a concentration in data science at the University of North Carolina at Charlotte. I am looking for oppurtunities to further develop my programming skills in a team-environment. Clicking on the icons will take you to my profile on it's respective page.</p>
-      <img src="clarkHoldenPFP.jpg" id="holdenPFP">
+      <p id="header">Hello! My name is Holden Clark and I am currently a senior studying computer science with a concentration in data science at the University of North Carolina at Charlotte. I am looking for oppurtunities to further develop my programming skills in a team-environment.
+        <br><br>
+      This is my e-portfolio, designed to showcase various projects I’ve worked on. Currently, the website features a brief introduction about me, my resume, a blog feature, and a project named “StarCraft Game Counter”.
+        <br><br>
+      However, it’s important to note that several projects are currently missing from the portfolio. This is either because they haven’t been implemented into the website yet, or the projects themselves are still incomplete.
+        <br><br>
+      In the near future, I plan to add more features to the website. One such feature is a server-side database, which will be used to store blog posts.
+        <br><br>
+      Additionally, I’m excited to share that I’ll be implementing more projects onto the website. One of these is the “Alien Invasion” project, which is a game created using Pygame. My goal is to fully develop this game and make it downloadable for anyone interested in playing it.
+        <br><br>
+      Another project I’m eager to showcase is a demo of a bot I’ve created that can play the video game StarCraft 2 against other AI bots.
+        <br><br>
+      Thank you for visiting my e-portfolio. Stay tuned for these exciting updates!
+      </p>
       <a href="https://github.com/HoldenClark">
-        <img src="githubIMG.png" id="github">
+        <img src="images/githubIMG.png" alt="github.png" id="github">
       </a>
       <a href="https://www.linkedin.com/in/holdenjclark/">
-        <img src="linkedInIMG.png" id="linkedin">
+        <img src="images/linkedInIMG.png" alt="linkedin.png" id="linkedin">
       </a>
       <a href="https://leetcode.com/HoldenClark/">
-        <img src="leetcodeIMG.png" id="leetcode">
+        <img src="images/leetcodeIMG.png" alt="leetcode.png" id="leetcode">
       </a>
-    </div>
+      <a href="mailto:holdenjclark@gmail.com">
+        <img src="images/gmailIMG.png" alt="gmail.png" id="gmail">
+      </a>
+
+  </div>
+
   </div>
   
   <div id="Resume" class="tabcontent">
-    <img src="clarkHoldenResume39.jpg" id="resume">
+    <img src="images/clarkHoldenResumeNonClickable42.png" alt="resume.png" id="resume">
   </div>
   
   <div id="Project 1" class="tabcontent">
-    <iframe src="starcraftCounter.html"></iframe>
+    <iframe src="starcraftGameCounter/starcraftCounter.html" title="StarCraftGameCounter" style="width:100%;height:70vh"></iframe>
 
     <h1>StarCraft Counter Application</h1>
     <p>This is a counter application for the popular RTS game StarCraft. The primary function is keeping track of the total amount of games you have played, the amount of games that you have played with each faction that is playable in the game, and the win loss ratio you have for each faction and overall. You can select one of three factions to begin tracking your wins and losses after each game. You can switch factions at anytime as well as being able to reset the counts if necessary. Important features yet to be implemented are saving and loading your data so the application can be closed without losing track of important data.</p>
@@ -39,9 +69,26 @@
 
   </div>
 
-  <div id="Project 2" class="tabcontent">
-    <h3>Project 2</h3>
-    <p>Project 2.</p>
+  <div id="blog" class="tabcontent">
+
+    <div id="blog-info">
+      <p>This is where I showcase my programming progress whether that be some small knowledge I gained or the completion of a project I have been working on. It also helps me to keep something of a journal for myself and reflect on what I have learned while getting to share that knowledge and progress.</p>
+
+      <p>Only those who know the password can make posts here. (Currently posts are saved to local storage and in the future a server-side storage solution will be implemented)</p>
+      <form id="password">
+        <input type="text" autocomplete="username" style="display:none;">
+        <label for="pwd">Password:</label><br>
+        <input type="password" id="pwd" name="pwd" autocomplete="new-password" onchange="updateAccess()">
+      </form>
+    </div>
+
+    <form id="blogpost">
+      <textarea id="posts"></textarea><br>
+      <input type="button" value="Submit" onclick="logValue()" class="blogButton">
+    </form>
+
+    <button onclick="deleteLastPost()">DELETE LAST POST</button>
+
   </div>
 
   <!-- Making image fit current screen size -->
@@ -52,6 +99,8 @@
     }
   </style>
   
-
 <!-- Script -->
 <script src="index.js"></script>
+
+</body>
+</html>
